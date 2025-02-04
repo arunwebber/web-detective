@@ -28,3 +28,17 @@ p {
     border-radius: 5px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
 }
+/* Footer styling */
+#footer {
+    height: auto; /* Automatically adjust height based on content */
+    padding: 1px 3px; /* Minimal padding for spacing */
+    background-color: #f0f0f0;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    font-size: 9px; /* Slightly smaller font size */
+    color: #333;
+    width: 100%; /* Full width of the viewport */
+    line-height: 1; /* Tightest spacing for single-line text */
+    overflow: hidden; /* Prevent any content overflow */
+    white-space: nowrap; /* Ensure the text doesn't wrap to a new line */
+}
