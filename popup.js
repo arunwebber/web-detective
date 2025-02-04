@@ -29,8 +29,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.getElementById("cookieCount").textContent = data.cookieCount;
                     document.getElementById("trackingScripts").textContent = data.trackingScripts;
                     document.getElementById("fingerprinting").textContent = data.hasFingerprinting ? "Yes" : "No";
-                    document.getElementById("activeWebSockets").textContent = data.activeWebSockets;
-                    document.getElementById("thirdPartyScripts").textContent = data.thirdPartyScripts; // Adding the third-party scripts data
+                    document.getElementById("thirdPartyScripts").textContent = data.thirdPartyScripts;
+
+                    // Display Loaded Resources
+                    document.getElementById("loadedResources").textContent = data.totalResources;
+                    document.getElementById("totalResourceSize").textContent = `${data.totalResourceSize} KB`;
+
+                    // Check for active service workers
+                    if ("serviceWorker" in navigator) {
+                        navigator.serviceWorker.getRegistrations().then((registrations) => {
+                            document.getElementById("serviceWorkerStatus").textContent = registrations.length > 0 ? "Active" : "Inactive";
+                        });
+                    }
+
+                    // Check for WebAssembly support
+                    document.getElementById("webAssemblyStatus").textContent = window.WebAssembly ? "Supported" : "Not Supported";
                 }
             }
         );
@@ -38,12 +51,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function analyzePage() {
+    const resources = performance.getEntriesByType("resource");
+    const totalResourceSize = Math.round(resources.reduce((total, res) => total + (res.transferSize || 0), 0) / 1024);
+
     return {
         title: document.title,
         metaDesc: document.querySelector('meta[name="description"]')?.content || "Not found",
         h1Count: document.querySelectorAll("h1").length,
         totalLinks: document.querySelectorAll("a").length,
-        pageSize: Math.round(performance.getEntriesByType("resource").reduce((t, r) => t + (r.transferSize || 0), 0) / 1024),
+        pageSize: totalResourceSize,
 
         jsFrameworks: !!window.__REACT_DEVTOOLS_GLOBAL_HOOK__ ? "React" : "Unknown",
         cssFrameworks: document.querySelector('[class*="container"]') ? "Bootstrap" : "Unknown",
@@ -56,6 +72,9 @@ function analyzePage() {
         potentialXSS: [...document.querySelectorAll("input, textarea")].some(input => input.outerHTML.includes("onerror")),
 
         totalRequests: performance.getEntriesByType("resource").length,
+        totalResources: resources.length,
+        totalResourceSize,
+
         hasLazyLoading: document.querySelectorAll("img[loading='lazy']").length > 0,
         isMobileFriendly: window.matchMedia("only screen and (max-width: 768px)").matches,
         schemaMarkup: document.querySelector('script[type="application/ld+json"]') ? "Yes" : "No",
@@ -64,11 +83,20 @@ function analyzePage() {
         trackingScripts: document.querySelector('script[src*="google-analytics.com"]') ? "Found" : "None",
         hasFingerprinting: !!navigator.deviceMemory || !!navigator.hardwareConcurrency,
 
-        activeWebSockets: (window.WebSocket ? (() => { const websockets = []; window.WebSocket = (...args) => { websockets.push(new window.WebSocket(...args)); return websockets[websockets.length - 1]; }; return websockets.length > 0 ? "Active" : "None"; })() : "None"),
-
-        // Third-party scripts integrated in one line
         thirdPartyScripts: Array.from(document.querySelectorAll('script[src]'))
-            .filter(script => !script.src.includes(window.location.hostname))
-            .map(script => script.src).join(", ") || "None"
+            .filter(script => !script.src.includes(window.location.hostname)).map(script => script.src).join(", "),
+
+        activeWebSockets: (window.WebSocket
+            ? (() => {
+                  const websockets = [];
+                  window.WebSocket = (...args) => {
+                      websockets.push(new window.WebSocket(...args));
+                      return websockets[websockets.length - 1];
+                  };
+                  return websockets.length > 0 ? "Active" : "None";
+              })()
+            : "None"),
+
+        webAssembly: window.WebAssembly ? "Supported" : "Not Supported"
     };
 }

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>WebPage Analyzer</title>
-        <link rel="stylesheet" href="style.css">
-    </head>    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebPage Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>    
 <body>
     <h2>WebPage Analyzer</h2>
 
@@ -23,6 +25,7 @@
         <p><b>Backend Tech:</b> <span id="backendTech"></span></p>
         <p><b>CDN Used:</b><span id="cdn"></span></p>
         <p><b>Active WebSockets:</b> <span id="activeWebSockets"></span></p> <!-- Updated line for WebSocket status -->
+        <p><b>WebAssembly Support:</b> <span id="webAssemblyStatus"></span></p>
     </div>
 
     <div class="section">
@@ -39,6 +42,8 @@
         <p><b>Lazy Loading:</b><span id="lazyLoading"></span></p>
         <p><b>Mobile-Friendly:</b><span id="mobileFriendly"></span></p>
         <p><b>Schema Markup:</b><span id="schemaMarkup"></span></p>
+        <p><b>Loaded Resources:</b> <span id="loadedResources"></span></p>
+        <p><b>Total Resource Size:</b> <span id="totalResourceSize"></span></p>
     </div>
 
     <div class="section">
@@ -47,7 +52,15 @@
         <p><b>Tracking Scripts:</b> <span id="trackingScripts"></span></p>
         <p><b>Fingerprinting:</b> <span id="fingerprinting"></span></p>
         <p><b>Third-Party Scripts:</b> <span id="thirdPartyScripts"></span></p> <!-- New line for third-party scripts -->
+        <p><b>Service Worker Status:</b> <span id="serviceWorkerStatus"></span></p>
     </div>
+
+    <div class="section">
+        <h3>Error Log</h3>
+        <p><b>Blocked Resources:</b> <span id="blockedResources"></span></p> <!-- New line for blocked resources -->
+        <pre id="errorLog"></pre>
+        <p><b>JavaScript Errors:</b> <span id="jsErrors"></span></p> <!-- Added jsErrors element -->
+    </div>    
 
     <script src="popup.js"></script>
 </body>
