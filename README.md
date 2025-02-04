@@ -46,8 +46,8 @@ Web Detective is a Chrome extension that provides insights into website performa
 1. **Download the Extension:**  
    Clone this repository or download the ZIP.  
    ```bash
-   git clone https://github.com/your-repo/web-analyzer-extension.git  
-   cd web-analyzer-extension  
+   git clone https://github.com/arunwebber/web-detective.git 
+   cd web-detective  
    ```  
 
 2. **Load as an Unpacked Extension:**  
@@ -59,7 +59,7 @@ Web Detective is a Chrome extension that provides insights into website performa
 
 ## **Usage**  
 
-1. Click the **Web Analyzer** extension icon in the Chrome toolbar.  
+1. Click the **Web Detective** extension icon in the Chrome toolbar.  
 2. The popup will display the page's performance, security, and tracking details.  
 3. Use this data to optimize the webpage or detect security risks.  
 
