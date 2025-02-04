@@ -1,7 +1,7 @@
-# **Web Performance & Security Analyzer**  
+# **Web Detective**  
 
 ## **Overview**  
-Web Performance & Security Analyzer is a Chrome extension that provides insights into website performance, security, and tracking mechanisms. It evaluates SEO, web technologies, security protocols, and resource usage to help developers and security professionals analyze web pages efficiently.  
+Web Detective is a Chrome extension that provides insights into website performance, security, and tracking mechanisms. It evaluates SEO, web technologies, security protocols, and resource usage to help developers and security professionals analyze web pages efficiently.  
 
 ---
 
