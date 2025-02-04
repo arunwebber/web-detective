@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "WebPage Analyzer",
+    "version": "1.0",
+    "description": "Analyze a webpage for SEO, security, performance, and more.",
+    "permissions": ["scripting", "activeTab", "storage"],
+    "host_permissions": ["<all_urls>"],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
