@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/arunwebber/web-detective/refs/heads/master/images/icon_128.png" alt="Logo">
+</p>
 # **Web Detective**  
 
 ## **Overview**  
