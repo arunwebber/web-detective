@@ -44,16 +44,14 @@ Web Detective is a Chrome extension that provides insights into website performa
 ## **Installation**  
 
 1. **Download the Extension:**  
-   Clone this repository or download the ZIP.  
-   ```bash
-   git clone https://github.com/arunwebber/web-detective.git 
-   cd web-detective  
+   Download the Extension:Clone this repository or download the ZIP.git clone git clone https://github.com/Krishnapriya462/.git
+2. cd web-detective  
+Load as an Unpacked Extension:
+Open Chrome and go to chrome://extensions/
+Enable Developer mode (top right corner)
+Click "Load unpacked" and select the folder
    ```  
 
-2. **Load as an Unpacked Extension:**  
-   - Open Chrome and go to `chrome://extensions/`  
-   - Enable **Developer mode** (top right corner)  
-   - Click **"Load unpacked"** and select the folder  
 
 ---
 
