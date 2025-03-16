@@ -50,7 +50,7 @@ Load as an Unpacked Extension:
 Open Chrome and go to chrome://extensions/
 Enable Developer mode (top right corner)
 Click "Load unpacked" and select the folder
-   ```  
+    
 
 
 ---
