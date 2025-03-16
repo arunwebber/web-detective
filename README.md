@@ -48,7 +48,8 @@ Web Detective is a Chrome extension that provides insights into website performa
 2. cd web-detective  
 Load as an Unpacked Extension:
 Open Chrome and go to chrome://extensions/
-Enable Developer mode (top right corner
+Enable Developer mode (top right corner)
+Click "Load unpacked" and select the folder
 
 ---
 
