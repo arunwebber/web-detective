@@ -44,7 +44,7 @@ Web Detective is a Chrome extension that provides insights into website performa
 ## **Installation**  
 
 1. **Download the Extension:**  
-  Clone this repository 
+Clone this repository 
 2. cd email-parser
 3. Load as an Unpacked Extension:
 4. Open Chrome and go to chrome://extensions/
